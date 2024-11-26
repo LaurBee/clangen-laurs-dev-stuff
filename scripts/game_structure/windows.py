@@ -553,11 +553,11 @@ class ChangeCatName(UIWindow):
             container=self,
         )
 
-        if self.the_cat.name.status in self.the_cat.name.names_dict["special_suffixes"]:
+        if self.the_cat.status in self.the_cat.name.names_dict["special_suffixes"]:
             self.suffix_entry_box = pygame_gui.elements.UITextEntryLine(
                 ui_scale(pygame.Rect((159 + x_pos, 50 + y_pos), (120, 30))),
                 placeholder_text=self.the_cat.name.names_dict["special_suffixes"][
-                    self.the_cat.name.status
+                    self.the_cat.status
                 ],
                 manager=MANAGER,
                 container=self,
@@ -2061,10 +2061,11 @@ class SelectFocusClans(UIWindow):
             object_id="#exit_window_button",
             container=self,
         )
-        self.save_button = UIImageButton(
+        self.save_button = UISurfaceImageButton(
             ui_scale(pygame.Rect((80, 180), (139, 30))),
-            "",
-            object_id="#change_focus_button",
+            "Change Focus",
+            get_button_dict(ButtonStyles.SQUOVAL, (139, 30)),
+            object_id="@buttonstyles_squoval",
             container=self,
         )
         self.save_button.disable()
